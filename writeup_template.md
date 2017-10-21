@@ -1,47 +1,27 @@
 # **Finding Lane Lines on the Road** 
-
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Finding Lane Lines on the Road**
-
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
-
-
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-
 ---
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. The pipeline consisted of the following steps:  
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+1. Convert image to gray scale to facilitate edge detection. 
+2. Apply Gaussian blur to smoothen the image to eliminate noise and unnecessary details from the image.
+3. Apply canny detection to identify edges in the image. 
+4. Mask the image so that only the region of interest is processed.   
+5. Apply hough transforms on the region of interest to detect lane lines.
+6. Classify lanes lines to left and right lanes.
+7. Smoothen the result by averaging the slope and intercept 
+8. Extrapolate the left and right line based on the top and bottom points obtained from average slope and intercept values
+9. Plot the lines on top of the image 
+ 
+### 2. Potential Shortcoming 
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+1. Assumes camera location is fixed. The region masking assumes the position of the camera and image size/format produced by the camera. It will not work for images obtained from a different position/angle/camera type.  
+2. The lane detection does not work on images with bad lighting (night time, sunsets, showdows cast on lane lines etc) as gray scale only detects bright or dark spots. 
+3. The lane line is assumed to be always straight and does not work on curved roads. 
+4. The lane detection will fail if vehicles switching lanes hide the lane lines. 
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+### 3. Possible improvments 
 
-![alt text][image1]
-
-
-### 2. Identify potential shortcomings with your current pipeline
-
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
-
-### 3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+Using HSV instead of RGB for images. HSV focuses on hue and saturation of images instead of bright or dark pixels which is better at handling images with bad lighting. 
