@@ -24,4 +24,7 @@
 
 ### 3. Possible improvments 
 
-Using HSV instead of RGB for images. HSV focuses on hue and saturation of images instead of bright or dark pixels which is better at handling images with bad lighting. 
+1. Using HSV instead of RGB for images. HSV focuses on hue and saturation of images instead of bright or dark pixels which is better at handling images with bad lighting. 
+2. Better tuned hough transform and edge detection.
+3. Improvemnts to smoothening algorithm. 
+4. Supporting curves instead of just straight lines for lane detection. 
