@@ -6,7 +6,7 @@
 Overview
 ---
 
-When we drive, we use our eyes to decide where to go. The lines on the road that show us where the lanes are act as our constant reference for where to steer the vehicle. The project detects lane lines in images using Python and OpenCV.
+When we drive, we use our eyes to decide where to go. The lines on the road that show us where the lanes are and act as our constant reference for where to steer the vehicle. The project detects lane lines in images using Python and OpenCV.
 
 Prerequisites 
 ---
